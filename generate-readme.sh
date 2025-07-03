@@ -22,7 +22,7 @@ for file in "$FORMULA_DIR"/*.rb; do
   INSTALL_NAME=$(basename "$file" .rb)
   FORMULA_FILE_URL="$REPO_URL/blob/main/$file"
 
-  INSTALL_CMD="\`brew install ${GITHUB_REPOSITORY#*/}/$INSTALL_NAME\`"
+  INSTALL_CMD="\`brew install wimwenigerkind/tab/$INSTALL_NAME\`"
 
   echo "| $NAME | $DESC | $LICENSE | [Formula]($FORMULA_FILE_URL) | [Repo]($HOMEPAGE) | $INSTALL_CMD |" >> "$README"
 done
