@@ -11,11 +11,10 @@ echo "# Homebrew Tap" > "$README"
 echo "" >> "$README"
 echo "## Packages" >> "$README"
 echo "" >> "$README"
-echo "| Paket | Beschreibung | Lizenz | Formula | Repo | Installieren |" >> "$README"
+echo "| Package | Description | License | Formula | Repo | Install |" >> "$README"
 echo "|-------|---------------|--------|---------|------|--------------|" >> "$README"
 
 for file in "$FORMULA_DIR"/*.rb; do
-  # Extrahiere Werte
   NAME=$(grep -E "^class " "$file" | awk '{print $2}')
   DESC=$(grep -E "^  desc " "$file" | sed 's/^  desc "\(.*\)"/\1/')
   HOMEPAGE=$(grep -E "^  homepage " "$file" | sed 's/^  homepage "\(.*\)"/\1/')
@@ -23,7 +22,6 @@ for file in "$FORMULA_DIR"/*.rb; do
   INSTALL_NAME=$(basename "$file" .rb)
   FORMULA_FILE_URL="$REPO_URL/blob/main/$file"
 
-  # Homebrew Install Befehl
   INSTALL_CMD="\`brew install ${GITHUB_REPOSITORY#*/}/$INSTALL_NAME\`"
 
   echo "| $NAME | $DESC | $LICENSE | [Formula]($FORMULA_FILE_URL) | [Repo]($HOMEPAGE) | $INSTALL_CMD |" >> "$README"
