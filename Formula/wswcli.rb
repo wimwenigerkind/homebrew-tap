@@ -5,21 +5,21 @@
 class Wswcli < Formula
   desc "wswcli"
   homepage "https://github.com/wimwenigerkind/wswcli"
-  version "2.0.0"
+  version "2.1.0"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.0.0/wswcli_Darwin_x86_64.tar.gz"
-      sha256 "a6cef636beb9220b8aca5fe41b650ff3a0c3ba99f277191eb022cfa5590df27d"
+    if Hardware::CPU.intel?
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Darwin_x86_64.tar.gz"
+      sha256 "1fb27076815bc3a41f79754aaa6fab5f024d078f5ddff437cf3d4a22ee80124d"
 
       def install
         bin.install "wswcli"
       end
     end
-    on_arm do
-      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.0.0/wswcli_Darwin_arm64.tar.gz"
-      sha256 "7d403fd762ff4697bf10ad6c6df78568b26c6030e1782f4bfc9b63d0b0e7df60"
+    if Hardware::CPU.arm?
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Darwin_arm64.tar.gz"
+      sha256 "8499b5dbdeec598cda47dc9df665d31116105228d3d939ab2ef055308b27fbb8"
 
       def install
         bin.install "wswcli"
@@ -28,24 +28,18 @@ class Wswcli < Formula
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.0.0/wswcli_Linux_x86_64.tar.gz"
-        sha256 "e07834c19e0f966cb5a96c2f0f9651805ef03758ca49e58e1fdbcc31b75b35bf"
-
-        def install
-          bin.install "wswcli"
-        end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Linux_x86_64.tar.gz"
+      sha256 "8059c2a18b2233dfbf477ba991c505b12d2a1cfbfd920b7359a91c3f7d971925"
+      def install
+        bin.install "wswcli"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.0.0/wswcli_Linux_arm64.tar.gz"
-        sha256 "f3d9daa7f9a5cd8d23615b822c054e78c2830db833c3e80d9eefc2d6fc3a35fd"
-
-        def install
-          bin.install "wswcli"
-        end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Linux_arm64.tar.gz"
+      sha256 "2eaac2d5f70840389c587c2e3a08e762e9281c26c3bed5f3487ec555f6c34071"
+      def install
+        bin.install "wswcli"
       end
     end
   end
