@@ -5,21 +5,21 @@
 class Wswcli < Formula
   desc "wswcli"
   homepage "https://github.com/wimwenigerkind/wswcli"
-  version "2.1.0"
+  version "2.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Darwin_x86_64.tar.gz"
-      sha256 "1fb27076815bc3a41f79754aaa6fab5f024d078f5ddff437cf3d4a22ee80124d"
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.2.0/wswcli_Darwin_x86_64.tar.gz"
+      sha256 "5b7ad02b6604a1c5f61ff806a75076d9356f468265a876d2b410452828b7489b"
 
       def install
         bin.install "wswcli"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Darwin_arm64.tar.gz"
-      sha256 "8499b5dbdeec598cda47dc9df665d31116105228d3d939ab2ef055308b27fbb8"
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.2.0/wswcli_Darwin_arm64.tar.gz"
+      sha256 "e746d7a8266c9a3c821d4100d1e87e46057e75b5c30017339d7cd1be6ee98681"
 
       def install
         bin.install "wswcli"
@@ -29,15 +29,15 @@ class Wswcli < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Linux_x86_64.tar.gz"
-      sha256 "8059c2a18b2233dfbf477ba991c505b12d2a1cfbfd920b7359a91c3f7d971925"
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.2.0/wswcli_Linux_x86_64.tar.gz"
+      sha256 "e94798feb513ce7f45d27d2f769fc32644477f639c207374d54471b13e4e3ee1"
       def install
         bin.install "wswcli"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.1.0/wswcli_Linux_arm64.tar.gz"
-      sha256 "2eaac2d5f70840389c587c2e3a08e762e9281c26c3bed5f3487ec555f6c34071"
+      url "https://github.com/wimwenigerkind/wswcli/releases/download/v2.2.0/wswcli_Linux_arm64.tar.gz"
+      sha256 "18951ba3e0d5db3f6846621f408f541bf3a5730805b1f34b7b2991df09c760f2"
       def install
         bin.install "wswcli"
       end
