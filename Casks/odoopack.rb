@@ -3,7 +3,7 @@ cask "odoopack" do
   name "odoopack"
   desc "Package manager for Odoo 19 addons"
   homepage "https://github.com/wimwenigerkind/odoopack"
-  version "0.0.2"
+  version "0.0.3"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,28 @@ cask "odoopack" do
   on_macos do
     on_intel do
       url "https://github.com/wimwenigerkind/odoopack/releases/download/v#{version}/odoopack_Darwin_x86_64.tar.gz"
-      sha256 "912b2f819b8d007f6f83e0490acd190c29743a15d4e38435ee8d29de3c7f5514"
+      sha256 "0e2beb2070070873df0b253f3d63f70a048dbb8782e228dcf3f9a8ff433ed882"
     end
     on_arm do
       url "https://github.com/wimwenigerkind/odoopack/releases/download/v#{version}/odoopack_Darwin_arm64.tar.gz"
-      sha256 "4520cb0f1de3b148b864402e392358d08fcbf25009207916c81b35fab30f7e82"
+      sha256 "e2130e58ae06bf98da267f5c8cdf27392ccbe2e94fb02fa696df09425220141c"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/wimwenigerkind/odoopack/releases/download/v#{version}/odoopack_Linux_x86_64.tar.gz"
-      sha256 "0802a848a68dd59f208d395eae15352e2612c78f1bb6d2f7ffef5c7b106601c9"
+      sha256 "343412f6b0e72b5d006860c678042c0e5b314ff2d0ea408b4de6e04c8b5d1d57"
     end
     on_arm do
       url "https://github.com/wimwenigerkind/odoopack/releases/download/v#{version}/odoopack_Linux_arm64.tar.gz"
-      sha256 "9b317e2c6391a4943c520f593f1b5566471d144118bb251d83d3a114b18a2e39"
+      sha256 "324951f737b93e6ddf42c2bb12ac712b28ad42751d816e3a6445635ea3b208e4"
+    end
+  end
+
+  postflight do
+    if OS.mac?
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/odoopack"]
     end
   end
 
