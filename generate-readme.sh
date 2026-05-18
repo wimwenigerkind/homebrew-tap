@@ -23,7 +23,7 @@ for file in "$CASKS_DIR"/*.rb; do
   INSTALL_NAME=$(basename "$file" .rb)
   FILE_URL="$REPO_URL/blob/main/$file"
 
-  INSTALL_CMD="\`brew install --cask wimwenigerkind/tab/$INSTALL_NAME\`"
+  INSTALL_CMD="\`brew install --cask wimwenigerkind/tap/$INSTALL_NAME\`"
 
   echo "| $NAME | $DESC | $LICENSE | [Cask]($FILE_URL) | [Repo]($HOMEPAGE) | $INSTALL_CMD |" >>"$README"
 done
